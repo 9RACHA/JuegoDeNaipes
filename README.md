@@ -119,13 +119,23 @@ Las clases creadas siguiendo la especificación funcionarán correctamente con e
 principal y mostrarán un listado como este:
 
 [Airbus] 300
+
 [Airbus] 310
+
 [Airbus] 320
+
 [Airbus] 330
+
 [Airbus] 340
+
 [Airbus] 380
+
 [Boeing] 727
+
 [Boeing] 737
+
 [...]
+
 [Airbus] 310 GANA A [Airbus] 300 en Envergadura
+
 [Airbus] 330 GANA A [Airbus] 320 en Pasajeros
