@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*Se suministra el archivo Main que contiene un script a modo de programa principal.*/
 public class Main : MonoBehaviour {
     private List<Naipe> mazo;
 
+    /*El metodo Start()*/
     void Start() {
+        //Crea objetos de las clases Naipe y CaracteristicaAvion y los vincula usando el metodo AddCaracteristica()
+        //de la clase Naipe
         mazo = new List<Naipe>();
 
+        //Se añade a la lista los elementos
         mazo.Add(CrearNaipe("300", "Airbus", 266, 54, 45, 830, 6670));
         mazo.Add(CrearNaipe("310", "Airbus", 240, 45, 44, 850, 6800));
         mazo.Add(CrearNaipe("320", "Airbus", 150, 38, 35, 828, 6100));
@@ -36,6 +41,7 @@ public class Main : MonoBehaviour {
         
     }
 
+    //Se crea el constructor 
     private Naipe CrearNaipe(string nombre, string palo, int pasajeros, int longitud, int envergadura, int crucero, int alcance) {
         Naipe naipe = new Naipe(nombre, palo); 
         naipe.AnadirCaracteristica(new CaracteristicaAvion("Pasajeros", pasajeros));
@@ -47,6 +53,7 @@ public class Main : MonoBehaviour {
         return naipe;
     }
 
+    //El programa lista la informacion disponible usando el metodo Info()
     private void Listar(List<Naipe> mazo) {
         string infoNaipe = "";
         foreach(Naipe naipe in mazo) {
@@ -55,7 +62,8 @@ public class Main : MonoBehaviour {
         Debug.Log(infoNaipe);
 
     }
-
+    //Realiza 2 envites el 1º entre las 2 primeras cartas del mazo, usando como caracteristica de comparcion la 
+    // envergadura, y un 2º usando las 2 cartas siguientes usando como caracteristica el numero de pasajeros
     private void Jugar(Naipe naipeJugador1, Naipe naipeJugador2, string nombreCaracteristica) {
         Caracteristica c1 = naipeJugador1.BuscarCaracteristica(nombreCaracteristica);
         Caracteristica c2 = naipeJugador2.BuscarCaracteristica(nombreCaracteristica);
@@ -66,6 +74,18 @@ public class Main : MonoBehaviour {
         }
     }
 
+    //Las clases creadas siguiendo la especificion funcionaran correctamente con este programa principal y mostraran un listado como este
+/*[Airbus] 300
+[Airbus] 310
+[Airbus] 320
+[Airbus] 330
+[Airbus] 340
+[Airbus] 380
+[Boeing] 727
+[Boeing] 737
+[...]
+[Airbus] 310 GANA A [Airbus] 300 en Envergadura
+[Airbus] 330 GANA A [Airbus] 320 en Pasajeros*/
     private void ResultadoJugada(Naipe naipeGanador, Naipe naipePerdedor, string nombreCaracteristica) {
         string info = $"{naipeGanador.Info()} GANA A {naipePerdedor.Info()} en {nombreCaracteristica}";
         Debug.Log(info);
