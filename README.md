@@ -1,9 +1,14 @@
 # JuegoDeNaipes
 
+## Get, Abstract, Bool, List, Constructor, Virtual
+
 ## Diferencia entre campo y propiedad:
+
 Las propiedades proporcionan un mecanismo para encapsular el acceso a los campos y pueden tener lógica adicional en los métodos get y set. 
 Los campos, por otro lado, son variables de almacenamiento directo sin ningún procesamiento adicional.
+
 ---
+
 Realizar un proyecto en Unity llamado JuegoDeNaipes con las siguientes especificaciones.
 
 El objetivo del proyecto es crear un sistema que permita crear barajas de cartas del tipo de las que
