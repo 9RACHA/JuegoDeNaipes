@@ -24,6 +24,22 @@ public abstract class Caracteristica
     }
     /*Las 2 propiedades deben ser publicamente accesibles y de solo lectura*/
 
+    /*Parse: Es una función que se encuentra en muchos tipos de datos y se utiliza para convertir una cadena de texto en un valor de ese tipo de datos.
+    Permite analizar y convertir una representación de cadena en su equivalente en el tipo de dato deseado
+    tipoDato.Parse(cadena)*/
+    public Caracteristica(string nombre)
+    {
+        this.nombre = nombre;
+        int.TryParse(nombre, out valor);
+    }
+    
+    /*CAST: se puede convertir un valor de tipo int a string mediante un cast.
+    esta conversión no es un cast en el sentido estricto, sino que implica la llamada a un método de conversión.
+    int numeroEntero = 42;
+    string numeroString = numeroEntero.ToString();
+    Console.WriteLine(numeroString); // Salida: "42"
+    */
+
     /*
     También se define un constructor público que toma los valores para los campos nombre y valor y los asigna a las variables correspondientes.
     Además, se define un método abstracto EsMejor() que tomará un objeto de la clase Caracteristica como parámetro y devolverá un valor booleano.

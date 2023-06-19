@@ -11,10 +11,13 @@ public class Naipe
     private string nombre; //Un campo de tipo string llamado nombre
     /*Un campo es una variable que almacena datos en una clase,
     una propiedad proporciona un acceso controlado a un campo y permite aplicar lógica adicional al leer o escribir el valor del campo*/
-    public string Nombre => nombre; //Una propiedad de tipo string llamada Nombre que devolvera el valor de campo nombre;
+    public string Nombre => nombre; // Una propiedad de tipo string llamada Nombre que devolvera el valor de campo nombre;
+    //public string Nombre => nombre; // Abreviatura de solo lectura
+    //set { nombre = value; } // Solamente Escritura  
+    //get { return nombre; } // Solamente Lectura
+
     private string palo; //Un campo privado de tipo string llamado palo;
     public string Palo => palo; //Una propiedad de tipo string llamada Palo que devolvera el valor del campo palo
-
     //Los dos campos deben ser accesibles solo a la propia clase Naipe: por eso son PRIVATE
     /*Las dos propiedades deben ser publicamente accesibles y de solo lectura: declararlas como propiedades públicas con solo el bloque get.
     Esto permitirá que otras clases puedan leer el valor de las propiedades, pero no podrán modificarlas directamente*/
@@ -41,8 +44,8 @@ public class Naipe
     El segundo recibe como parámetro el nombre de una característica y devuelve el objeto  de la clase Caracteristica con ese nombre.
     El tercer método recibe como parámetros otro objeto de la clase Naipe y el nombre de una característica, y determina cuál de las dos cartas tiene un mejor valor en esa característica usando el método EsMejor() de la clase Caracteristica.
     */
-    /*Un metodo publico llamado AnadirCaracteristica(), que recibira como parametro un objeto de la clase Caracteristica*/
-    public void AnadirCaracteristica(Caracteristica caracteristica)
+    /*Un metodo publico llamado AnadirCaracteristica(), que recibira como */
+    public void AnadirCaracteristica(Caracteristica caracteristica) //parametro un objeto de la clase Caracteristica
     {
         caracteristicas.Add(caracteristica); //Y lo añadira a la lista caracteristicas
     }
@@ -60,8 +63,8 @@ public class Naipe
         return null;// Si no se encuentra ninguna caracteristica con ese nombre devolvera null
     }
 
-    /*Un metodo publico llamado QueCartaGana() que recibira como parametros un objeto de tipo Naipe y un string
-    con el nombre de una caracteristica*/
+    /*Un metodo publico llamado QueCartaGana() que recibira como parametros*/
+    /*un objeto de tipo Naipe y un string con el nombre de una caracteristica*/
     public Naipe QueCartaGana(Naipe otraCarta, string nombreCaracteristica)
     {/*Que se debe usar para comparar la instancia actual con el naipe recibido como parametro.*/
         Caracteristica miCaracteristica = BuscarCaracteristica(nombreCaracteristica);
@@ -88,7 +91,7 @@ public class Naipe
     */
     /*Un metodo publico llamado Info(), sin parametros, que devolvera el palo del naipe*/
     public virtual string Info() /*El metodo Info debe estar declarado para poder ser sobreescrito
-    en las clases que derivende Naipe*/
+    en las clases que deriven de Naipe*/
     {
         return "[" + Palo + "] " + Nombre; //enmarcado entre corchetes, seguido del nombre del naipe.El resultado debera ser:
         //[McDonnell Douglas] MD11
